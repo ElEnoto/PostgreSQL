@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  postgres:
+    build:
+      context: postgres
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
+    volumes:
+      - ./postgresql-data:/var/lib/postgresql/data
+    ports:
+      - "54329:5432"
